@@ -41,6 +41,7 @@
 * so agrees to indemnify Cypress against all liability.
 *******************************************************************************/
 
+
 #include "cy_pdl.h"
 #include "cyhal.h"
 #include "cyhal_gpio_impl.h"
@@ -50,7 +51,6 @@
 #include "spi_master.h"
 #include "spi_slave.h"
 #include "cybsp_types.h"
-
 
 /*******************************************************************************
 * Macros
@@ -109,11 +109,15 @@ int main(void)
 
 #if ((SPI_MODE == SPI_MODE_BOTH) || (SPI_MODE == SPI_MODE_MASTER))
 
+    /* Local command variable */
+    uint32_t cmd = CYBSP_LED_STATE_OFF;
+
     /* Buffer to hold command packet to be sent to the slave by the master */
     uint32_t  tx_buffer[NUMBER_OF_ELEMENTS];
 
-    /* Local command variable */
-    uint32_t cmd = CYBSP_LED_STATE_OFF;
+    tx_buffer[PACKET_SOP_POS] = PACKET_SOP;
+    tx_buffer[PACKET_CMD_POS] = cmd;
+    tx_buffer[PACKET_EOP_POS] = PACKET_EOP;
 
     /* Initialize the SPI Master */
     status = init_master();

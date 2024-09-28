@@ -4,11 +4,11 @@ This example demonstrates the use of the SPI serial communication block (SCB) re
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-pdl-xmc7000-spi-master-dma)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzM4NjAiLCJTcGVjIE51bWJlciI6IjAwMi0zMzg2MCIsIkRvYyBUaXRsZSI6IlhNQzcwMDAgTUNVOiBTQ0IgU1BJIG1hc3RlciB3aXRoIERNQSIsInJpZCI6ImhheGkiLCJEb2MgdmVyc2lvbiI6IjIuMS4wIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IklDVyIsIkRvYyBGYW1pbHkiOiJQU09DIn0=)
+[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzM4NjAiLCJTcGVjIE51bWJlciI6IjAwMi0zMzg2MCIsIkRvYyBUaXRsZSI6IlhNQzcwMDAgTUNVOiBTQ0IgU1BJIG1hc3RlciB3aXRoIERNQSIsInJpZCI6ImhheGkiLCJEb2MgdmVyc2lvbiI6IjIuMS4xIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IklDVyIsIkRvYyBGYW1pbHkiOiJQU09DIn0=)
 
 ## Requirements
 
-- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.1 or later (tested with v3.1)
+- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.1 or later (tested with v3.2)
 - Programming language: C
 - Associated parts: [XMC7000 MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/), [TRAVEO™ T2G body high MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt4bf-series/)
 
@@ -16,8 +16,8 @@ This example demonstrates the use of the SPI serial communication block (SCB) re
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
 - GNU Arm&reg; Embedded Compiler v11.3.1 (`GCC_ARM`) – Default value of `TOOLCHAIN`
-- Arm&reg; Compiler v6.16 (`ARM`)
-- IAR C/C++ Compiler v9.30.1 (`IAR`)
+- Arm&reg; Compiler v6.22 (`ARM`)
+- IAR C/C++ Compiler v9.50.2 (`IAR`)
 
 
 ## Supported kits (make variable 'TARGET')
@@ -306,6 +306,7 @@ Document title: *CE233860* - *XMC7000 MCU: SCB SPI master with DMA*
 | 1.2.0   | Updated for clock setting of KIT_XMC72_EVK     |
 | 2.0.0   | Updated to support ModusToolbox&trade; v3.1 and added support for the BSP KIT_XMC71_EVK_LITE_V1
 | 2.1.0   | Added support for KIT_XMC72_EVK_MUR_43439M2
+| 2.1.1   | Disabled D-cache for XMC7000 based BSPs
 <br>
 
 All referenced product or service names and trademarks are the property of their respective owners.

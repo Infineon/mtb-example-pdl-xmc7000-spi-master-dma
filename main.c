@@ -143,6 +143,7 @@ int main(void)
 
     /* Buffer to save the received data by the slave */
     uint32_t  rx_buffer[NUMBER_OF_ELEMENTS];
+
     rx_buffer[0] = 0xffu;
     rx_buffer[1] = 0xffu;
     rx_buffer[2] = 0xffu;

@@ -101,6 +101,8 @@ uint32_t configure_tx_dma(uint32_t* tx_buffer)
      Cy_DMA_Descriptor_SetSrcAddress(&txDma_Descriptor_0, (uint8_t *)tx_buffer);
      Cy_DMA_Descriptor_SetDstAddress(&txDma_Descriptor_0, (void *)&mSPI_HW->TX_FIFO_WR);
 
+     SCB_CleanDCache_by_Addr((uint32_t*)&txDma_Descriptor_0, sizeof(txDma_Descriptor_0));
+
      /* Initialize and enable the interrupt from TxDma */
      Cy_SysInt_Init(&intTxDma_cfg, &tx_dma_complete);
 
@@ -182,6 +184,8 @@ uint32_t configure_rx_dma(uint32_t* rx_buffer)
      /* Set source and destination for descriptor 1 */
      Cy_DMA_Descriptor_SetSrcAddress(&rxDma_Descriptor_0, (void *)&sSPI_HW->RX_FIFO_RD);
      Cy_DMA_Descriptor_SetDstAddress(&rxDma_Descriptor_0, (uint8_t *)rx_buffer);
+
+     SCB_CleanDCache_by_Addr((uint32_t*)&rxDma_Descriptor_0, sizeof(rxDma_Descriptor_0));
 
      /* Initialize and enable the interrupt from TxDma */
      Cy_SysInt_Init(&intRxDma_cfg, &rx_dma_complete);

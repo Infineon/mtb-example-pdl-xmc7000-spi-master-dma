@@ -77,8 +77,10 @@ void handle_error(void);
 /*******************************************************************************
 * Global Variables
 ********************************************************************************/
-
-
+/* Buffer to hold command packet to be sent to the slave by the master */
+CY_SECTION_SHAREDMEM uint32_t tx_buffer[NUMBER_OF_ELEMENTS];
+/* Buffer to save the received data by the slave */
+CY_SECTION_SHAREDMEM uint32_t rx_buffer[NUMBER_OF_ELEMENTS];
 
 /******************************************************************************
 * Function Name: main
@@ -112,9 +114,6 @@ int main(void)
     /* Local command variable */
     uint32_t cmd = CYBSP_LED_STATE_OFF;
 
-    /* Buffer to hold command packet to be sent to the slave by the master */
-    uint32_t  tx_buffer[NUMBER_OF_ELEMENTS];
-
     tx_buffer[PACKET_SOP_POS] = PACKET_SOP;
     tx_buffer[PACKET_CMD_POS] = cmd;
     tx_buffer[PACKET_EOP_POS] = PACKET_EOP;
@@ -141,9 +140,6 @@ int main(void)
 
 #if ((SPI_MODE == SPI_MODE_BOTH) || (SPI_MODE == SPI_MODE_SLAVE))
 
-    /* Buffer to save the received data by the slave */
-    uint32_t  rx_buffer[NUMBER_OF_ELEMENTS];
-
     rx_buffer[0] = 0xffu;
     rx_buffer[1] = 0xffu;
     rx_buffer[2] = 0xffu;
@@ -165,9 +161,6 @@ int main(void)
     }
 
 #endif /* #if ((SPI_MODE == SPI_MODE_BOTH) || (SPI_MODE == SPI_MODE_SLAVE)) */
-
-    /* Disable D cache because DMA also reads descriptor in the SRAM */
-    SCB_DisableDCache();
 
     /* Enable global interrupt */
     __enable_irq();

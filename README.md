@@ -4,13 +4,14 @@ This example demonstrates the use of the SPI serial communication block (SCB) re
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-pdl-xmc7000-spi-master-dma)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzM4NjAiLCJTcGVjIE51bWJlciI6IjAwMi0zMzg2MCIsIkRvYyBUaXRsZSI6IlhNQzcwMDAgTUNVOiBTQ0IgU1BJIG1hc3RlciB3aXRoIERNQSIsInJpZCI6ImhheGkiLCJEb2MgdmVyc2lvbiI6IjIuMS4xIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IklDVyIsIkRvYyBGYW1pbHkiOiJQU09DIn0=)
+[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzM4NjAiLCJTcGVjIE51bWJlciI6IjAwMi0zMzg2MCIsIkRvYyBUaXRsZSI6IlhNQzcwMDAgTUNVOiBTQ0IgU1BJIG1hc3RlciB3aXRoIERNQSIsInJpZCI6InpxbGkiLCJEb2MgdmVyc2lvbiI6IjIuMi4wIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IklDVyIsIkRvYyBGYW1pbHkiOiJQU09DIn0=)
+
 
 ## Requirements
 
-- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.1 or later (tested with v3.2)
+- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.1 or later (tested with v3.3)
 - Programming language: C
-- Associated parts: [XMC7000 MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/), [TRAVEO™ T2G body high MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt4bf-series/)
+- Associated parts: [XMC7000 MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/32-bit-xmc7000-industrial-microcontroller-arm-cortex-m7/), [TRAVEO&trade; T2G Body High MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt4bf-series/)
 
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
@@ -22,34 +23,40 @@ This example demonstrates the use of the SPI serial communication block (SCB) re
 
 ## Supported kits (make variable 'TARGET')
 
-- [XMC7200 Evaluation Kit](https://www.infineon.com/KIT_XMC72_EVK) (`KIT_XMC72_EVK`) - Default value of `TARGET`
-- [TRAVEO&trade; T2G body high Evaluation Kit](https://www.infineon.com/KIT_T2G-B-H_EVK) (`KIT_T2G-B-H_EVK`)
+- [XMC7200 Evaluation Kit](https://www.infineon.com/KIT_XMC72_EVK) (`KIT_XMC72_EVK`) – Default value of `TARGET`
+- [TRAVEO&trade; T2G Body High Evaluation Kit](https://www.infineon.com/KIT_T2G-B-H_EVK) (`KIT_T2G-B-H_EVK`)
 - [XMC7100 Evaluation Kit](https://www.infineon.com/KIT_XMC71_EVK_LITE_V1) (`KIT_XMC71_EVK_LITE_V1`)
 - [XMC7200 Evaluation Kit](https://www.infineon.com/KIT_XMC72_EVK) (`KIT_XMC72_EVK_MUR_43439M2`)
+
+
 ## Hardware setup
 
 This example uses the board's default configuration. See the kit user guide to ensure that the board is configured correctly.
 
 Use jumper wires to establish a connection between the master and slave on the kit. For the default kit, do the following on the board (verify with the corresponding custom *design.modus* file to find the respective SPI pins for other kits).
 
-XMC7200 evaluation kit:
+XMC7200 Evaluation Kit:
 1. Connect P12[0] to P14[0].
 2. Connect P12[1] to P14[1].
 3. Connect P12[2] to P14[2].
 4. Connect P12[3] to P14[3].
 
-XMC7100 evaluation kit:
+XMC7100 Evaluation Kit:
 1. Connect P13[0] to P14[0].
 2. Connect P13[1] to P14[1].
 3. Connect P13[2] to P14[2].
 4. Connect P13[3] to P14[3].
 
+
 ## Software setup
+
+See the [ModusToolbox&trade; tools package installation guide](https://www.infineon.com/ModusToolboxInstallguide) for information about installing and configuring the tools package.
 
 This example requires no additional software or tools.
 
 
 ## Using the code example
+
 
 ### Create the project
 
@@ -81,13 +88,14 @@ The ModusToolbox&trade; tools package provides the Project Creator as both a GUI
 
 </details>
 
+
 <details><summary><b>Use Project Creator CLI</b></summary>
 
 The 'project-creator-cli' tool can be used to create applications from a CLI terminal or from within batch files or shell scripts. This tool is available in the *{ModusToolbox&trade; install directory}/tools_{version}/project-creator/* directory.
 
 Use a CLI terminal to invoke the 'project-creator-cli' tool. On Windows, use the command-line 'modus-shell' program provided in the ModusToolbox&trade; installation instead of a standard Windows command-line application. This shell provides access to all ModusToolbox&trade; tools. You can access it by typing "modus-shell" in the search box in the Windows menu. In Linux and macOS, you can use any terminal application.
 
-The following example will clone the "[mtb-example-pdl-xmc7000-spi-master-dma](https://github.com/Infineon/mtb-example-pdl-xmc7000-spi-master-dma)" application with the desired name "PdlScbMasterDma" configured for the *KIT-XMC72-EVK* BSP into the specified working directory, *C:/mtb_projects*:
+The following example clones the "[mtb-example-pdl-xmc7000-spi-master-dma](https://github.com/Infineon/mtb-example-pdl-xmc7000-spi-master-dma)" application with the desired name "PdlScbMasterDma" configured for the *KIT_XMC72_EVK* BSP into the specified working directory, *C:/mtb_projects*:
 
    ```
    project-creator-cli --board-id KIT_XMC72_EVK --app-id mtb-example-pdl-xmc7000-spi-master-dma --user-app-name PdlScbMasterDma --target-dir "C:/mtb_projects"
@@ -200,15 +208,15 @@ For more details, see the [ModusToolbox&trade; tools package user guide](https:/
 
 ## Configuring a kit with two SPI ports in both master and slave mode
 
-By default, the kit is configured to work in both-master-and-slave mode (ensure that the `SPI_MODE` macro in *interface.h* is configured as `SPI_MODE_BOTH`).
+By default, the kit is configured to work in both master and slave mode (ensure that the `SPI_MODE` macro in *interface.h* is configured as `SPI_MODE_BOTH`).
 
-Do the following to configure the kit to work in both-master-and-slave mode:
+Do the following to configure the kit to work in both master and slave mode:
 
 1. Run the [Device configurator](https://www.infineon.com/ModusToolboxDeviceConfig) tool from the Quick Panel of the IDE.
 
    Because the kit has only one available SPI port, by default, the associated SCB is aliased as *mSPI* in the **Peripherals** tab.
 
-2. Rename the associated SCBs to **sSPI and mSPI** and configure the SCBs:
+2. Rename the associated SCBs to **sSPI** and **mSPI** and configure the SCBs:
 
    **Figure 1. Configure peripherals master SPI**
 
@@ -219,26 +227,31 @@ Do the following to configure the kit to work in both-master-and-slave mode:
    ![](images/configure_peripherals_spi_slave.jpg)
 
 
-3. In the **Pins** tab, assign the correct drive mode to SPI pins in the **Drive Mode** drop-down menu:
+3. In the **Pins** tab, assign the correct drive mode to SPI pins in the **Drive Mode** dropdown menu:
 
-   **Table 1. Drive mode for Slave SPI pins**
+   **Table 1. Drive mode for slave SPI pins**
 
-    SPI pins | Drive mode
-    :--------| ------------
-    MOSI     | Digital High-Z. Input buffer ON
-    MISO     | Strong Drive. Input buffer OFF
-    SCLK     | Digital High-Z. Input buffer ON
-    SS0      | Digital High-Z. Input buffer ON
-	
-	**Table 2. Drive mode for Master SPI pins**
-    SPI pins | Drive mode
-    :--------| ------------
-    MOSI     | Strong Drive. Input buffer OFF
-    MISO     | Digital High-Z. Input buffer ON
-    SCLK     | Strong Drive. Input buffer OFF
-    SS0      | Strong Drive. Input buffer OFF
+   SPI pins | Drive mode
+   :--------| ------------
+   MOSI     | Digital High-Z. Input buffer ON
+   MISO     | Strong Drive. Input buffer OFF
+   SCLK     | Digital High-Z. Input buffer ON
+   SS0      | Digital High-Z. Input buffer ON
 
-4. In the **DMA** tab, rename the DMA to **txDma and rxDma** and configure it:
+   <br>
+
+   **Table 2. Drive mode for master SPI pins**
+      
+   SPI pins | Drive mode
+   :--------| ------------
+   MOSI     | Strong Drive. Input buffer OFF
+   MISO     | Digital High-Z. Input buffer ON
+   SCLK     | Strong Drive. Input buffer OFF
+   SS0      | Strong Drive. Input buffer OFF
+   
+   <br>
+
+4. In the **DMA** tab, rename the DMA to **txDma** and **rxDma** and configure it:
 
    **Figure 3. Configure txDMA**
 
@@ -253,12 +266,26 @@ Do the following to configure the kit to work in both-master-and-slave mode:
 
 ## Debugging
 
-You can debug the example to step through the code. In the IDE, use the **\<Application Name> Debug (KitProg3_MiniProg4)** configuration in the **Quick Panel**. For details, see the "Program and debug" section in the [Eclipse IDE for ModusToolbox&trade; user guide](https://www.infineon.com/MTBEclipseIDEUserGuide).
+You can debug the example to step through the code.
 
-**Note:** **(Only while debugging)** On the debugging CPU, some code in `main()` may execute before the debugger halts at the beginning of `main()`. This means that some code executes twice – once before the debugger stops execution, and again after the debugger resets the program counter to the beginning of `main()`. See [KBA231071](https://community.infineon.com/docs/DOC-21143) to learn about this and for the workaround.
+
+<details><summary><b>In Eclipse IDE</b></summary>
+
+Use the **\<Application Name> Debug (KitProg3_MiniProg4)** configuration in the **Quick Panel**. For details, see the "Program and debug" section in the [Eclipse IDE for ModusToolbox&trade; user guide](https://www.infineon.com/MTBEclipseIDEUserGuide).
+
+
+</details>
+
+
+<details><summary><b>In other IDEs</b></summary>
+
+Follow the instructions in your preferred IDE.
+
+</details>
 
 
 ## Design and implementation
+
 
 ### Resources and settings
 
@@ -271,47 +298,54 @@ The following table lists the resources used in this example and their purpose.
  SCB (SPI)           |      mSPI           | Master SPI SCB
  SCB (SPI)           |      sSPI           | Slave SPI SCB
  GPIO                |     CYBSP_USER_LED  | LED indication
- DMA                 |     txDma           | Data Transfer
- DMA                 |     rxDma           | Data Transfer
+ DMA                 |     txDma           | Data transfer
+ DMA                 |     rxDma           | Data transfer
+
+<br>
+
 
 ## Related resources
 
 Resources | Links
 -----------|------------------
-Application notes | [AN234334](https://www.infineon.com/dgdl/Infineon-Getting_started_with_XMC7000_MCU_on_ModusToolbox_software-ApplicationNotes-v06_00-EN.pdf?fileId=8ac78c8c850f4bee0185a53e84147437) – Getting started with XMC7000 MCU on ModusToolbox&trade; <br> [AN234021](https://www.infineon.com/dgdl/Infineon-AN234021_Low-power_mode_procedure_in_XMC7000_family-ApplicationNotes-v01_00-EN.pdf?fileId=8ac78c8c8412f8d3018451117fa54ef6) – Low power mode procedure in XMC7000 family 
+Application notes | [AN234334](https://www.infineon.com/dgdl/Infineon-Getting_started_with_XMC7000_MCU_on_ModusToolbox_software-ApplicationNotes-v06_00-EN.pdf?fileId=8ac78c8c850f4bee0185a53e84147437) – Getting started with XMC7000 MCU on ModusToolbox&trade; software <br> [AN234021](https://www.infineon.com/dgdl/Infineon-AN234021_Low-power_mode_procedure_in_XMC7000_family-ApplicationNotes-v01_00-EN.pdf?fileId=8ac78c8c8412f8d3018451117fa54ef6) – Low-power mode procedure in XMC7000 family
 Code examples | [Using ModusToolbox&trade;](https://github.com/Infineon/Code-Examples-for-ModusToolbox-Software) on GitHub
 Device documentation | [XMC7000 MCU documents](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/32-bit-xmc7000-industrial-microcontroller-arm-cortex-m7/#!documents)
-Development kits | Select your kits from the [Evaluation board finder](https://www.infineon.com/cms/en/design-support/finder-selection-tools/product-finder/evaluation-board)
+Development kits | Select your kits from the [Evaluation board finder](https://www.infineon.com/cms/en/design-support/finder-selection-tools/product-finder/evaluation-board).
 Libraries on GitHub  | [mtb-pdl-cat1](https://github.com/Infineon/mtb-pdl-cat1) – Peripheral Driver Library (PDL)  <br> [mtb-hal-cat1](https://github.com/Infineon/mtb-hal-cat1) – Hardware Abstraction Layer (HAL) library <br> [retarget-io](https://github.com/Infineon/retarget-io) – Utility library to retarget STDIO messages to a UART port
 Middleware on GitHub  | [mcu-middleware](https://github.com/Infineon/modustoolbox-software) – Links to all MCU middleware
-Tools  | [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) – ModusToolbox&trade; software is a collection of easy-to-use libraries and tools enabling rapid development with Infineon MCUs for applications ranging from wireless and cloud-connected systems, edge AI/ML, embedded sense and control, to wired USB connectivity using PSoC&trade; Industrial/IoT MCUs, AIROC&trade; Wi-Fi and Bluetooth&reg; connectivity devices, XMC&trade; Industrial MCUs, and EZ-USB&trade;/EZ-PD&trade; wired connectivity controllers. ModusToolbox&trade; incorporates a comprehensive set of BSPs, HAL, libraries, configuration tools, and provides support for industry-standard IDEs to fast-track your embedded application development.
+Tools  | [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) – ModusToolbox&trade; software is a collection of easy-to-use libraries and tools enabling rapid development with Infineon MCUs for applications ranging from wireless and cloud-connected systems, edge AI/ML, embedded sense and control, to wired USB connectivity using PSOC&trade; Industrial/IoT MCUs, AIROC&trade; Wi-Fi and Bluetooth&reg; connectivity devices, XMC&trade; Industrial MCUs, and EZ-USB&trade;/EZ-PD&trade; wired connectivity controllers. ModusToolbox&trade; incorporates a comprehensive set of BSPs, HAL, libraries, configuration tools, and provides support for industry-standard IDEs to fast-track your embedded application development.
 
 <br>
+
 
 ## Other resources
 
 Infineon provides a wealth of data at [www.infineon.com](https://www.infineon.com) to help you select the right device, and quickly and effectively integrate it into your design.
 
-
 For XMC&trade; MCU devices, see [32-bit XMC&trade; industrial microcontroller based on Arm&reg; Cortex&reg;-M](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/).
+
 
 ## Document history
 
-Document title: *CE233860* - *XMC7000 MCU: SCB SPI master with DMA*
+Document title: *CE233860* – *XMC7000 MCU: SCB SPI master with DMA*
 
-| Version | Description of change |
-| ------- | --------------------- |
-| 1.0.0   | New code example     |  
-| 1.1.0   | Added support for KIT_T2G-B-H_EVK     |
-| 1.2.0   | Updated for clock setting of KIT_XMC72_EVK     |
-| 2.0.0   | Updated to support ModusToolbox&trade; v3.1 and added support for the BSP KIT_XMC71_EVK_LITE_V1
-| 2.1.0   | Added support for KIT_XMC72_EVK_MUR_43439M2
-| 2.1.1   | Disabled D-cache for XMC7000 based BSPs
+Version | Description of change
+------- | ---------------------
+1.0.0   | New code example
+1.1.0   | Added support for KIT_T2G-B-H_EVK
+1.2.0   | Updated for clock setting of KIT_XMC72_EVK
+2.0.0   | Updated to support ModusToolbox&trade; v3.1 and added support for the BSP KIT_XMC71_EVK_LITE_V1
+2.1.0   | Added support for KIT_XMC72_EVK_MUR_43439M2
+2.1.1   | Disabled D-cache for XMC7000 based BSPs
+2.2.0   | Enabled D-cache support for XMC7000 devices
 <br>
+
 
 All referenced product or service names and trademarks are the property of their respective owners.
 
 The Bluetooth&reg; word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Infineon is under license.
+
 
 ---------------------------------------------------------
 
